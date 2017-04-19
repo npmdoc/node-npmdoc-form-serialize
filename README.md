@@ -1,9 +1,14 @@
-# api documentation for  [form-serialize (v0.7.1)](https://github.com/shtylman/form-serialize#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-form-serialize.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-form-serialize) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-form-serialize.svg)](https://travis-ci.org/npmdoc/node-npmdoc-form-serialize)
+# npmdoc-form-serialize
+
+#### api documentation for  [form-serialize (v0.7.1)](https://github.com/shtylman/form-serialize#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-form-serialize.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-form-serialize) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-form-serialize.svg)](https://travis-ci.org/npmdoc/node-npmdoc-form-serialize)
+
 #### serialize html forms
 
-[![NPM](https://nodei.co/npm/form-serialize.png?downloads=true)](https://www.npmjs.com/package/form-serialize)
+[![NPM](https://nodei.co/npm/form-serialize.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/form-serialize)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-form-serialize/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-form-serialize_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-form-serialize/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-form-serialize/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-form-serialize/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-form-serialize/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-form-serialize/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-form-serialize/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Roman Shtylman",
-        "email": "shtylman@gmail.com"
+        "name": "Roman Shtylman"
     },
     "bugs": {
         "url": "https://github.com/shtylman/form-serialize/issues"
@@ -46,13 +50,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "defunctzombie",
-            "email": "shtylman@gmail.com"
+            "name": "defunctzombie"
         }
     ],
     "name": "form-serialize",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/shtylman/form-serialize.git"
@@ -64,16 +66,6 @@
     "version": "0.7.1"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module form-serialize](#apidoc.module.form-serialize)
-
-
-
-# <a name="apidoc.module.form-serialize"></a>[module form-serialize](#apidoc.module.form-serialize)
 
 
 

@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/shtylman/form-serialize#readme"
-
-    >form-serialize (v0.7.1)</a>
+    <a href="https://github.com/shtylman/form-serialize#readme">form-serialize (v0.7.1)</a>
 </h1>
 <h4>serialize html forms</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.form-serialize">module form-serialize</a><ol>
 
@@ -86,26 +79,26 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function serialize(form, options) {
-    if (typeof options != &#x27;object&#x27;) {
+    if (typeof options != 'object') {
         options = { hash: !!options };
     }
     else if (options.hash === undefined) {
         options.hash = true;
     }
 
-    var result = (options.hash) ? {} : &#x27;&#x27;;
+    var result = (options.hash) ? {} : '';
     var serializer = options.serializer || ((options.hash) ? hash_serializer : str_serialize);
 
-    var elements = form &#x26;&#x26; form.elements ? form.elements : [];
+    var elements = form &amp;&amp; form.elements ? form.elements : [];
 
-    //Object store each radio and set if it&#x27;s empty or not
+    //Object store each radio and set if it's empty or not
     var radio_store = Object.create(null);
 
-    for (var i=0 ; i&#x3c;elements.length ; ++i) {
+    for (var i=0 ; i&lt;elements.length ; ++i) {
         var element = elements[i];
 
         // ingore disabled fields
-        if ((!options.disabled &#x26;&#x26; element.disabled) || !element.name) {
+        if ((!options.disabled &amp;&amp; element.disabled) || !element.name) {
             continue;
         }
         // ignore anyhting that is not considered a success field
@@ -117,22 +110,22 @@
         var key = element.name;
         var val = element.value;
 
-        // we can&#x27;t just use element.value for checkboxes cause some browsers lie to us
-        // they say &#x22;on&#x22; for value when the box isn&#x27;t checked
-        if ((element.type === &#x27;checkbox&#x27; || element.type === &#x27;radio&#x27;) &#x26;&#x26; !element.checked) {
+        // we can't just use element.value for checkboxes cause some browsers lie to us
+        // they say "on" for value when the box isn't checked
+        if ((element.type === 'checkbox' || element.type === 'radio') &amp;&amp; !element.checked) {
             val = undefined;
         }
 
         // If we want empty elements
         if (options.empty) {
             // for checkbox
-            if (element.type === &#x27;checkbox&#x27; &#x26;&#x26; !element.checked) {
-                val = &#x27;&#x27;;
+            if (element.type === 'checkbox' &amp;&amp; !element.checked) {
+                val = '';
             }
 
             // for radio
-            if (element.type === &#x27;radio&#x27;) {
-                if (!radio_store[element.name] &#x26;&#x26; !element.checked) {
+            if (element.type === 'radio') {
+                if (!radio_store[element.name] &amp;&amp; !element.checked) {
                     radio_store[element.name] = false;
                 }
                 else if (element.checked) {
@@ -141,7 +134,7 @@
             }
 
             // if options empty is true, continue only if its radio
-            if (!val &#x26;&#x26; element.type == &#x27;radio&#x27;) {
+            if (!val &amp;&amp; element.type == 'radio') {
                 continue;
             }
         }
@@ -153,25 +146,25 @@
         }
 
         // multi select boxes
-        if (element.type === &#x27;select-multiple&#x27;) {
+        if (element.type === 'select-multiple') {
             val = [];
 
             var selectOptions = element.options;
             var isSelectedOptions = false;
-            for (var j=0 ; j&#x3c;selectOptions.length ; ++j) {
+            for (var j=0 ; j&lt;selectOptions.length ; ++j) {
                 var option = selectOptions[j];
-                var allowedEmpty = options.empty &#x26;&#x26; !option.value;
+                var allowedEmpty = options.empty &amp;&amp; !option.value;
                 var hasValue = (option.value || allowedEmpty);
-                if (option.selected &#x26;&#x26; hasValue) {
+                if (option.selected &amp;&amp; hasValue) {
                     isSelectedOptions = true;
 
                     // If using a hash serializer be sure to add the
                     // correct notation for an array in the multi-select
                     // context. Here the name attribute on the select element
                     // might be missing the trailing bracket pair. Both names
-                    // &#x22;foo&#x22; and &#x22;foo[]&#x22; should be arrays.
-                    if (options.hash &#x26;&#x26; key.slice(key.length - 2) !== &#x27;[]&#x27;) {
-                        result = serializer(result, key + &#x27;[]&#x27;, option.value);
+                    // "foo" and "foo[]" should be arrays.
+                    if (options.hash &amp;&amp; key.slice(key.length - 2) !== '[]') {
+                        result = serializer(result, key + '[]', option.value);
                     }
                     else {
                         result = serializer(result, key, option.value);
@@ -180,8 +173,8 @@
             }
 
             // Serialize if no selected options and options.empty is true
-            if (!isSelectedOptions &#x26;&#x26; options.empty) {
-                result = serializer(result, key, &#x27;&#x27;);
+            if (!isSelectedOptions &amp;&amp; options.empty) {
+                result = serializer(result, key, '');
             }
 
             continue;
@@ -190,11 +183,11 @@
         result = serializer(result, key, val);
     }
 
-    // Check for all empty radio buttons and serialize them with key=&#x22;&#x22;
+    // Check for all empty radio buttons and serialize them with key=""
     if (options.empty) {
         for (var key in radio_store) {
             if (!radio_store[key]) {
-                result = serializer(result, key, &#x27;&#x27;);
+                result = serializer(result, key, '');
             }
         }
     }
@@ -213,3 +206,4 @@
     ]
 </div>
 </div>
+</body></html>
